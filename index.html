@@ -202,12 +202,42 @@
         }
 
         /* --- تجاوب الموبايل --- */
+      /* --- 7. التجاوب (Media Queries) - نسخة الموبايل المحسنة --- */
         @media (max-width: 768px) {
+            /* 1. ترتيب الهيدر: اللوغو فوق والقائمة تحته */
+            header {
+                flex-direction: column;
+                padding: 15px;
+                height: auto;
+                gap: 15px;
+                background: rgba(5, 5, 5, 0.95); /* خلفية أغمق للقراءة */
+            }
+
+            /* 2. إظهار القائمة وتنسيقها */
+            nav ul {
+                display: flex;          /* <--- السر هنا: حولناها من none إلى flex */
+                flex-wrap: wrap;        /* السماح بالعناصر تنزل سطر ثاني إذا ما وسعت */
+                justify-content: center;
+                gap: 15px;              /* مسافة بين الكلمات */
+                width: 100%;
+            }
+
+            nav a {
+                font-size: 0.85rem;     /* تصغير الخط قليلاً ليناسب الموبايل */
+                padding: 5px;
+            }
+
+            /* 3. إخفاء زر "تواصل معي" من الهيدر (لأنه مكرر تحت وتوفيراً للمساحة) */
+            header .btn-main {
+                display: none;
+            }
+
+            /* 4. باقي تنسيقات الموبايل */
             .hero h1 { font-size: 2.2rem; }
             .about-section { flex-direction: column; text-align: center; padding: 50px 20px; }
             .about-image { max-width: 100%; }
-            nav ul { display: none; } /* القائمة مخفية مؤقتاً */
-            .video-section { height: 50vh; } /* الفيديو نص شاشة عالموبايل أحلى */
+            .video-section { height: 50vh; }
+        }
         
     }
         /* --- 9. قسم التواصل (جديد) --- */
@@ -358,6 +388,7 @@
 </body>
 
 </html>
+
 
 
 
