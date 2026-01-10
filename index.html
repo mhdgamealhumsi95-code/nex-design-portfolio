@@ -6,6 +6,7 @@
     <title>NEX DESIGN | شريكك الإبداعي</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;500;700;900&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 
@@ -221,10 +222,10 @@
             margin-top: 40px;
             flex-wrap: wrap;
         }
-        .contact-box {
+       .contact-box {
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.1);
-            padding: 20px 40px;
+            padding: 15px 20px;       /* قللت الحشوة شوي */
             border-radius: 50px;
             font-size: 1.1rem;
             color: white;
@@ -232,12 +233,12 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            
+            /* --- الإضافات الجديدة --- */
+            width: 300px;             /* 1. عرض ثابت للكل */
+            justify-content: center;  /* 2. توسيط الكلام والأيقونة بالنص */
+            text-decoration: none;    /* ضمان عدم وجود خط تحت النص */
         }
-        .contact-box:hover {
-            background: var(--gradient-main);
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(176, 76, 224, 0.4);
-            border-color: transparent;
         }
         
     </style>
@@ -354,6 +355,7 @@
 </body>
 
 </html>
+
 
 
 
