@@ -37,7 +37,7 @@
         ul { list-style: none; }
 
         /* --- 3. الهيدر --- */
-       header {
+     header {
             position: fixed;
             top: 0;
             left: 0;
@@ -48,10 +48,11 @@
             align-items: center;
             z-index: 1000;
             
-            /* --- التغيير السحري هنا --- */
-            background: rgba(0, 0, 0, 0.7);  /* لون أسود بنسبة شفافية 70% */
-            backdrop-filter: blur(10px);     /* تأثير "الزجاج المثلج" ليغبش اللي وراه */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* خط خفيف جداً من تحت للجمالية */
+            /* --- تعديل الزجاج الشفاف --- */
+            background: rgba(0, 0, 0, 0.15); /* لون أسود خفيف جداً (شفافية 85%) */
+            backdrop-filter: blur(20px);     /* تغبيش قوي جداً ليفصل الخلفية */
+            -webkit-backdrop-filter: blur(20px); /* لدعم متصفح سفاري */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* حد شبه مخفي */
         }
         .logo {
             font-family: 'Outfit', sans-serif;
@@ -391,6 +392,7 @@
 </body>
 
 </html>
+
 
 
 
