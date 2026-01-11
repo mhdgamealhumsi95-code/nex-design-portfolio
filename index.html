@@ -323,11 +323,13 @@
             }
 
             /* إصلاح خلفية الصورة للموبايل */
-            .hero {
+          /* تعديل الخلفية: نزلناها لتحت عشان الشريط ما يغطي عليها */
+            .hero { 
                 background-size: contain !important; 
-                background-position: center center !important;
-                height: 40vh; 
-                margin-top: 0;
+                background-position: center top !important; /* المحاذاة للأعلى */
+                background-repeat: no-repeat !important;
+                height: 40vh;   /* الحفاظ على الارتفاع المناسب */
+                margin-top: 140px; /* ✅ هون السر: دفعنا الصورة لتحت بمقدار ارتفاع الشريط */
             }
 
             .about-section { flex-direction: column; text-align: center; padding: 10px 20px; }
@@ -464,5 +466,6 @@
 
 </body>
 </html>
+
 
 
