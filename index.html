@@ -227,86 +227,53 @@
 
         /* --- تجاوب الموبايل --- */
 /* --- كود الموبايل (مصحح 100%) --- */
-      /* --- تعديل الهيدر ليبقى في الأعلى ولا ينزل معك --- */
-        header {
-            position: absolute; /* كان fixed، حولناه لـ absolute */
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 20px 5%; /* قللنا الحواف شوي عشان الجوال */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: transparent; /* خلفية شفافة تماماً */
-            border-bottom: none;     /* شلنا الخط من تحت */
-        }
-
-        /* تنسيق زر القائمة (3 شخطات) - مخفي عاللابتوب */
-        .hamburger {
-            display: none;
-            font-size: 2rem;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* --- كود الجوال الجديد (نظام القائمة المخفية) --- */
         @media (max-width: 768px) {
             
-            header {
-                flex-wrap: wrap; /* للسماح بالعناصر تنزل تحت بعض */
-                justify-content: center; /* كل شي بالنص */
-                padding-top: 10px;
-            }
-
-            /* 1. زر الـ 3 شخطات (في الزاوية) */
-            .hamburger {
-                display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px; /* في الزاوية اليمين */
-            }
-
-            /* 2. ترتيب اللوجو والزر تحته */
-            .logo-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin-top: 10px;
-            }
-
-            header .logo {
-                margin-bottom: 10px; /* مسافة بين اللوجو والزر */
-            }
-
-            /* 3. القائمة المنسدلة (مخفية افتراضياً) */
+            /* 1. إصلاح القائمة (2 في كل سطر بانتظام) */
             nav ul {
-                display: none; /* مخفي */
-                flex-direction: column;
-                width: 100%;
-                background: rgba(0, 0, 0, 0.95); /* خلفية سوداء للقائمة */
-                position: absolute;
-                top: 100%; /* تظهر تحت الهيدر مباشرة */
-                left: 0;
-                padding: 20px 0;
-                border-bottom: 1px solid #333;
-            }
-
-            /* كلاس رح نضيفه بالجافاسكريبت لإظهار القائمة */
-            nav ul.active {
                 display: flex;
+                flex-wrap: wrap;       /* يسمح بالنزول لسطر جديد */
+                justify-content: center;
+                gap: 10px;             /* مسافة صغيرة بين الأزرار */
+                width: 100%;
+                padding: 0;
             }
 
             nav li {
-                width: 100%;
-                margin: 10px 0;
+                width: 45%;            /* كل زر ياخد نص العرض تقريباً */
+                text-align: center;    /* الكلام بالنص */
+                margin-bottom: 5px;
             }
-            
-            /* زر "معرض أعمالي" يكون واضح تحت اللوجو */
+
+            nav a {
+                display: block;        /* عشان الزر ياخد مساحته */
+                font-size: 0.9rem;     /* خط مناسب للموبايل */
+                padding: 8px;
+                background: rgba(255,255,255,0.05); /* لون خلفية خفيف جداً لترتيب الأزرار */
+                border-radius: 5px;
+            }
+
+            /* إخفاء زر "معرض أعمالي" المكرر في الهيدر عشان ما يخرب الشكل */
             header .btn-main {
-                font-size: 0.9rem;
-                padding: 8px 20px;
+                display: none;
             }
+
+            /* 2. إصلاح خلفية الصورة (تظهر كاملة بدون قص) */
+            .hero {
+                /* نلغي الزوم ونخلي الصورة تطلع كاملة */
+                background-size: contain !important; 
+                background-repeat: no-repeat !important;
+                background-position: center center !important;
+                
+                /* نعدل الارتفاع ليناسب حجم الصورة عالموبايل وما يكون طويل زيادة */
+                height: 60vh; 
+                margin-top: 20px; /* بعد عن القائمة شوي */
+            }
+
+            /* 3. ترتيب باقي الأقسام */
+            .about-section { flex-direction: column; text-align: center; padding: 30px 15px; }
+            .about-image { max-width: 100%; margin-bottom: 20px; }
+            .video-section { height: 40vh; }
         }
         
     }
@@ -346,31 +313,36 @@
 </head>
 <body>
 
-   <header>
-        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <header>
+        <div class="logo">NEX DESIGN</div>
+       <nav>
+            <ul>
+                <li><a href="#about">من أنا</a></li>
 
-        <div class="logo-container">
-            <div class="logo">NEX DESIGN</div>
-            
-            <a href="https://www.behance.net/YOUR_PROFILE" class="btn-main" target="_blank">معرض أعمالي</a>
-        </div>
+                <li><a href="#services">خدماتي</a></li>
 
-        <nav>
-            <ul id="nav-list">
-                <li><a href="#about" onclick="toggleMenu()">من أنا</a></li>
-                <li><a href="#services" onclick="toggleMenu()">خدماتي</a></li>
-                <li><a href="#portfolio" onclick="toggleMenu()">معرض NEX DESIGN</a></li>
-                <li><a href="#contact" onclick="toggleMenu()">تواصل</a></li>
+                <li><a href="#portfolio">معرض NEX DESIGN</a></li>
+
+                <li><a href="#contact">تواصل</a></li>
             </ul>
         </nav>
+       <a href="https://www.behance.net/mohamadmhd" class="btn-main" target="_blank">معرض أعمالي</a>
     </header>
 
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById("nav-list");
-            menu.classList.toggle("active");
-        }
-    </script>
+    <section class="hero">
+    </section>
+
+    <section class="about-section" id="about">
+        <div class="about-image">
+            <img src="me.jpg" alt="صورتي الشخصية">
+        </div>
+        <div class="about-text">
+            <h2>MOHAMAD ALHUMSI</h2>
+            <h3>مصمم غرافيك ومونتير محترف</h3>
+            <p>
+                مرحباً! أنا مبدع شغوف في عالم التصميم والمونتاج. أمتلك خبرة واسعة في تحويل الأفكار المعقدة إلى هويات بصرية جذابة وفيديوهات ديناميكية. 
+                هدفي هو مساعدة العلامات التجارية على التميز من خلال دمج الفن بالتكنولوجيا الحديثة.
+            </p>
         </div>
     </section>
 
