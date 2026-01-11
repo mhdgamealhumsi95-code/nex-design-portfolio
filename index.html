@@ -77,18 +77,25 @@
         }
 
         /* --- 4. قسم البداية (Hero) --- */
-        .hero {
-            min-height: 100vh;
+      .hero {
+            height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: radial-gradient(circle at top center, rgba(176, 76, 224, 0.15), transparent 70%);
-            padding: 100px 20px;
+            padding-top: 80px;
+            
+            /* --- خلفية القسم الأول فقط --- */
+            /* استبدلنا اللون المتدرج القديم بصورتك مع طبقة تعتيم خفيفة */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('bg.jpg');
+            
+            background-size: cover;      /* لتعبئة القسم بالكامل */
+            background-position: center; /* لتركيز الصورة في الوسط */
+            /* حذفنا خاصية fixed لضمان أن الصورة تبقى في مكانها بالأعلى فقط */
+            
+            color: white;
+            position: relative; /* ضمان بقاء الحدود داخل هذا القسم */
         }
-        .hero h1 { font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 40px; }
 
         /* --- 5. قسم "عني" (About Me) - جديد --- */
         .about-section {
@@ -392,6 +399,7 @@
 </body>
 
 </html>
+
 
 
 
