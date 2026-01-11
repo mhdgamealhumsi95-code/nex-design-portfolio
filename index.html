@@ -62,8 +62,21 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        nav ul { display: flex; gap: 30px; }
-        nav a { font-weight: 500; color: var(--text-secondary); }
+       /* تنسيق القائمة */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px; /* (1) زدنا المسافة من 20 لـ 40 عشان تفرش بالعرض */
+        }
+
+        /* تنسيق الروابط (الكلمات) */
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem; /* (2) كبرنا الخط كان 1rem صار 1.2rem */
+            font-weight: bold; /* (3) عملناه سميك عشان يبرز */
+            transition: 0.3s;
+        }
         nav a:hover { color: var(--text-primary); }
         .btn-main {
             padding: 10px 25px;
@@ -399,6 +412,7 @@
 </body>
 
 </html>
+
 
 
 
