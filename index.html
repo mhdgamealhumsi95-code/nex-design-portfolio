@@ -226,46 +226,54 @@
         }
 
         /* --- تجاوب الموبايل --- */
-      /* --- 7. التجاوب (Media Queries) - نسخة الموبايل المحسنة --- */
+    /* --- كود الموبايل (مصحح 100%) --- */
         @media (max-width: 768px) {
-            /* 1. ترتيب الهيدر: اللوغو فوق والقائمة تحته */
-            header {
-                flex-direction: column;
-                padding: 15px;
-                height: auto;
-                gap: 15px;
-                background: rgba(5, 5, 5, 0.95); /* خلفية أغمق للقراءة */
-            }
-
-            /* 2. إظهار القائمة وتنسيقها */
-           /* ترتيب القائمة في الموبايل: 2 في كل سطر */
-            nav ul {
-                flex-direction: row;    /* نخليهم جنب بعض */
-                flex-wrap: wrap;        /* نسمح لهم ينزلوا سطر جديد */
-                justify-content: center; /* بالنص */
-                gap: 15px;              /* مسافة معقولة للموبايل */
-                width: 100%;            /* تعبئة العرض */
-            }
-
-            /* تكبير الكلمات في الموبايل */
-            nav a {
-                font-size: 1rem;       /* حجم خط مناسب */
-                display: block;
-                width: 100%;           /* عشان ياخد راحته */
-                white-space: nowrap;   /* منع الكلمة الواحدة من الانكسار */
-            }
             
-            /* تنسيق خاص لعنصر القائمة عشان يجي 2 بالسطر */
+            /* 1. إصلاح القائمة (2 في كل سطر بانتظام) */
+            nav ul {
+                display: flex;
+                flex-wrap: wrap;       /* يسمح بالنزول لسطر جديد */
+                justify-content: center;
+                gap: 10px;             /* مسافة صغيرة بين الأزرار */
+                width: 100%;
+                padding: 0;
+            }
+
             nav li {
-                width: 45%;            /* كل واحد ياخد نص الشاشة تقريباً */
+                width: 45%;            /* كل زر ياخد نص العرض تقريباً */
+                text-align: center;    /* الكلام بالنص */
                 margin-bottom: 5px;
             }
 
-            /* 4. باقي تنسيقات الموبايل */
-            .hero h1 { font-size: 2.2rem; }
-            .about-section { flex-direction: column; text-align: center; padding: 50px 20px; }
-            .about-image { max-width: 100%; }
-            .video-section { height: 50vh; }
+            nav a {
+                display: block;        /* عشان الزر ياخد مساحته */
+                font-size: 0.9rem;     /* خط مناسب للموبايل */
+                padding: 8px;
+                background: rgba(255,255,255,0.05); /* لون خلفية خفيف جداً لترتيب الأزرار */
+                border-radius: 5px;
+            }
+
+            /* إخفاء زر "معرض أعمالي" المكرر في الهيدر عشان ما يخرب الشكل */
+            header .btn-main {
+                display: none;
+            }
+
+            /* 2. إصلاح خلفية الصورة (تظهر كاملة بدون قص) */
+            .hero {
+                /* نلغي الزوم ونخلي الصورة تطلع كاملة */
+                background-size: contain !important; 
+                background-repeat: no-repeat !important;
+                background-position: center center !important;
+                
+                /* نعدل الارتفاع ليناسب حجم الصورة عالموبايل وما يكون طويل زيادة */
+                height: 60vh; 
+                margin-top: 20px; /* بعد عن القائمة شوي */
+            }
+
+            /* 3. ترتيب باقي الأقسام */
+            .about-section { flex-direction: column; text-align: center; padding: 30px 15px; }
+            .about-image { max-width: 100%; margin-bottom: 20px; }
+            .video-section { height: 40vh; }
         }
         
     }
@@ -417,6 +425,7 @@
 </body>
 
 </html>
+
 
 
 
